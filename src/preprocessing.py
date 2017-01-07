@@ -14,12 +14,12 @@ def get_all_words():
     titles = [title[1].split(' ') for title in titles]
 
     vocab = open('../data/vocab.txt', 'w')
-    words = set()
+    words = []
     for title in titles:
         for word in title:
             if word not in words:
                 vocab.write("{}\n".format(word))
-                words.add(word)
+                words.append(word)
     vocab.close()
 
     return titles, list(words)
